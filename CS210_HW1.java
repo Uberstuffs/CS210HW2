@@ -17,7 +17,7 @@ public class CS210_HW1 {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {        
             CS210_HW1 names = new CS210_HW1();
-            //Read names from file - CHANGE!
+            //Read names from file!
             List<String> nameList;
             if(args.length > 0)
             {
