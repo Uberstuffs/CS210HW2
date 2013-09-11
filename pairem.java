@@ -28,34 +28,67 @@ public class pairem
 		
 		//Check to see ifd a filename was given at run time,
 		//if it wasn't then take cmd line input.		
-		try
+		if( args.length == 0 )
+		{	
+			try
+			{			
+				BufferedReader rf = new BufferedReader( new InputStreamReader( System.in));
+				person = rf.readLine();
+				
+				//If program is ran by itself and not with pip, prevent infinate loop
+				if( person.length() == 0 )
+				{
+					System.out.println( "Usage: pairem [filename]" );
+					System.exit(0);
+				}
+				else
+				{
+					listOfPeople.add( person );
+				}	
+					
+				while((person = rf.readLine()) != null )
+				{
+					listOfPeople.add( person );
+				}
+				rf.close();
+			}
+				
+			catch( FileNotFoundException error )
+			{
+				System.out.println( "Usage: pairem [filename] " );
+				System.exit(0);
+			}
+		
+			catch( IOException error )
+			{
+				System.exit(0); 
+			}
+		}
+		
+		else
 		{
-			if( args.length == 0 )
-			{				
-				BufferedReader input = new BufferedReader( new InputStreamReader(args[0]) );
+			try
+			{			
+				BufferedReader rf = new BufferedReader( new FileReader( args[0] ));
+	
+				while((person = rf.readLine()) != null )
+				{
+					listOfPeople.add( person );
+				}
+				rf.close();
 			}
-			else
-			{
-				BufferedReader input = new BufferedReader( new FileReader( args[0] ));
-			}
-
-			while((person = input.readLine()) != null )
-			{
-				listOfPeople.add( person );
-			}
-			input.close();
 			
-		catch( FileNotFoundException error )
-		{
-			System.out.println( "Usage: pairem [filename] " );
-			System.exit(0);
-		}
+			catch( FileNotFoundException error )
+			{
+				System.out.println( "Usage: pairem [filename] " );
+				System.exit(0);
+			}
 	
-		catch( IOException error )
-		{
-			System.exit(0); 
-		}
-	
+			catch( IOException error )
+			{
+				System.exit(0);
+			}	
+		}	
 		// Create the array and read data into it
 		String[] people = new String[ listOfPeople.size() ];		
 		listOfPeople.toArray( people );
