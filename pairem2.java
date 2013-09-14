@@ -75,8 +75,11 @@ public class pairem2
         public void main(String args[]) throws IOException, FileNotFoundException
         {
             //take argv filename and perform "Students" methods on it
+            Person tmpPers;
             BufferedReader stud = new BufferedReader( new FileReader(args[0]));
-                   
+           
+            //tmpPers.initialize( ) 
+            //peopleList.add( tmpPers );
 
  
             stud.close();
@@ -94,7 +97,7 @@ public class pairem2
         public void main(String args[])
         {
             //tage argv filename and perform "Facalty" methods on it
-            BufferedReader stud = new BufferedReader( new FileReader(args[0]));        
+            BufferedReader fac = new BufferedReader( new FileReader(args[0]));        
 
             fac.close();
         }
