@@ -1,0 +1,14 @@
+pairem2.jar: pairem2.class	
+	jar cfe pairem2.jar pairem2 pairem2.class
+	
+jar: pairem2.class	
+	jar cfe pairem2.jar pairem2.class
+	
+run: pairem2.jar
+	java -jar pairem2.jar
+	
+pairem2.class: pairem2.java
+	javac pairem2.java
+
+pdf: pairem2.java
+	enscript --color=1 -C -Ejava -1 -o pairem2.ps pairem2.java && ps2pdf pairem2.ps  
