@@ -5,24 +5,30 @@ public class pairem2
 {
     public static void main(String  args[]) throws FileNotFoundException, IOException
     {
-        //ask user for file type of students or facalty        
+        //ask user for file type of students or facalty 
+        //class main()s open the file and read data from it
+        if( args.length == 0 )
+        {   
+            System.out.println("Usage: pairem [filename]");
+            System.exit(-1);
+        }       
     }
 
     public class Person
     {
-        String  n;
-        int     a;
-        char    g;
-        String  t;
+        String  name;
+        int     age;
+        char    gender;
+        String  title;
         //String major; found in subclass Student    
 
-        public void initialize()
+        public void initialize(String n, int a, char g, String t)
         {
             // parse line of text based on ","
-            //n = first block
-            //a = second block
-            //g = 3rd
-            //t = 4th
+            name =      n;   //first block
+            age =       a;    //second block
+            gender =    g;  //3rd
+            title =     t;  //4th
         }
     }
    
@@ -66,9 +72,14 @@ public class pairem2
             //each column must be 2 spaces wider than longest member
         }
 
-        public void main(String args[])
+        public void main(String args[]) throws IOException, FileNotFoundException
         {
             //take argv filename and perform "Students" methods on it
+            BufferedReader stud = new BufferedReader( new FileReader(args[0]));
+                   
+
+ 
+            stud.close();
         }
     }
 
@@ -83,6 +94,9 @@ public class pairem2
         public void main(String args[])
         {
             //tage argv filename and perform "Facalty" methods on it
+            BufferedReader stud = new BufferedReader( new FileReader(args[0]));        
+
+            fac.close();
         }
     }
 }
