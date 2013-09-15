@@ -7,7 +7,7 @@ public class Person
 {
     String  name = null;
     int     age  = 0;
-    char    gender = null;
+    char    gender = '/0';
     String  title = null;
     //String major in subclass
 
