@@ -5,10 +5,10 @@ import java.io.*;
 
 public class Person
 {
-    String  name = "Agent Smith";
-    int     age  = 999;
-    char    gender = 'M';
-    String  title = "Mr. Smith";
+    String  name = null;
+    int     age  = 0;
+    char    gender = null;
+    String  title = null;
     //String major in subclass
 
     String MrSmith = "Agent Smith,999,M,Mr. Smith";
