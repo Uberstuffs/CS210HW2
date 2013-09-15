@@ -51,8 +51,15 @@ public class pairem2
     {
         List<Person> peopleList;
             
-        public void populate()
+        public void populate( stringname )
         {
+            //parse string
+            String n, t;
+            int a;
+            char g;
+            Person tmpPer; 
+            tmpPer.initialize( n, a, g, t );
+            peopleList.Add( tmpPer );
             //reads data into peopleList from file using Person objects 
             //if( chartemp == ',' ) change from one field to the next 
         }
