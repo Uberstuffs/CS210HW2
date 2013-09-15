@@ -2,7 +2,9 @@ package pairPackage;
 import java.util.*;
 import java.io.*;
 
-class Student extends Person
+class Students extends People
 {
-    String major; 
+    String major;
+    Student stud;
+ 
 }

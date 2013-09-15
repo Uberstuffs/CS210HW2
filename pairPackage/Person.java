@@ -20,7 +20,6 @@ public class Person
     
     public void createPerson( String aStr )
     {
-        initialize();
         findName(   aStr );
         findAge(    aStr );
         findGend(   aStr );
