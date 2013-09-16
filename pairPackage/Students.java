@@ -6,8 +6,6 @@ class Students extends People
 {
     public static void main(String[] args) throws FileNotFoundException, IOException
     {
-        System.out.println( "Students Class" );
-        
         if(args.length > 0)
         {
             try
@@ -19,11 +17,17 @@ class Students extends People
                     populate(new Student(str));                    
                 }  
             }
-            catch(FileNotFoundException e){}
+            catch(FileNotFoundException e)
+            {
+                System.out.println("Usage: Pairem [filename]");
+                System.exit(-1);
+            }
         }
         else
         {
             System.out.println("File not given");
         }
-    }   
+        
+        pairem();
+    }  
 }

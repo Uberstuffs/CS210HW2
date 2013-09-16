@@ -22,6 +22,11 @@ public class Person
         findTitle(  aStr );
     }
 
+    public void printName()
+    {
+        System.out.print(name);
+    }
+
     public String parseComma( String ini, int c  )
     {
         tmpStr = "";
@@ -32,7 +37,6 @@ public class Person
             if(ini.charAt(i) == ',')
                 c--;
         }
-        System.out.println(tmpStr);
         return tmpStr;
     }
 

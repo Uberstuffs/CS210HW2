@@ -1,7 +1,6 @@
 /**
  * CS210 Homework 1 Program generates a list of partners from an input file.
  *
- * @author Gabe Pearhill
  */
 import java.io.BufferedReader;
 import java.util.Date;
