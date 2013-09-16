@@ -50,7 +50,11 @@ public class pairem2
     public class People
     {
         List<Person> peopleList;
-            
+        
+        /* 
+         
+        NOTED OUT TO SEE IF MY CODE WOULD COMPILE
+         
         public void populate( stringname )
         {
             //parse string
@@ -62,7 +66,7 @@ public class pairem2
             peopleList.Add( tmpPer );
             //reads data into peopleList from file using Person objects 
             //if( chartemp == ',' ) change from one field to the next 
-        }
+        }*/
 
         public void pairem()
         {
@@ -72,6 +76,7 @@ public class pairem2
     
     class Students extends People
     {
+        
         public void oneofeach()
         {
             //pair students in grps of 4 with different majors
@@ -79,17 +84,44 @@ public class pairem2
             //each column must be 2 spaces wider than longest member
         }
 
-        public void main(String args[]) throws IOException, FileNotFoundException
+        public void main(String args[])throws FileNotFoundException, IOException 
         {
             //take argv filename and perform "Students" methods on it
-            Person tmpPers;
-            BufferedReader stud = new BufferedReader( new FileReader(args[0]));
+            Student tmpPers = new Student();
+            
+            BufferedReader in = new BufferedReader( new FileReader(args[0]));
            
-            //tmpPers.initialize( ) 
+            List<Person> studentList = new LinkedList<>();
+            
+            String str;
+            //String contains the char or chars that seperate each element in the data file.
+            // . . . so in this case commas!
+            String delims;
+            delims = "[,]";
+            while((str = in.readLine()) != null)
+            {
+                //This magic function automatically serpates the line into a
+                //string array for initializing the data.
+                String[] data = str.split(delims);
+                
+                //Basic error checking, might need to be tweaked.
+                if(data.length == 5)
+                {
+                    //Initialize person
+                    tmpPers.name = data[0];
+                    tmpPers.age = Integer.parseInt(data[1]);
+                    tmpPers.gender = data[2].charAt(0);
+                    tmpPers.title = data[3];
+                    tmpPers.major = data[4];
+                }
+            }
+            //tmpPers.initialize( )
             //peopleList.add( tmpPers );
-
+            
+            //Add to list
+            studentList.add(tmpPers);
  
-            stud.close();
+            in.close();
         }
     }
 
@@ -101,12 +133,12 @@ public class pairem2
             //print names contained therein
         }
         
-        public void main(String args[])
+        public void main(String args[]) throws FileNotFoundException, IOException
         {
             //tage argv filename and perform "Facalty" methods on it
             BufferedReader fac = new BufferedReader( new FileReader(args[0]));        
 
-            fac.close();
+            //fac.close();
         }
     }
 }
