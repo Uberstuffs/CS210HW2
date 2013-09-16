@@ -1,8 +1,21 @@
+//Student.java
 package pairPackage;
 import java.util.*;
 import java.io.*;
 
-class Student extends Person
+public class Student extends Person
 {
-    String major; 
+    String major;
+    
+    public void Student()
+    {
+        major = "";
+    }
+    
+    public static void init( String s )
+    {
+        super(s);
+        major = parseComma(s, 4);
+    }  
 }
+

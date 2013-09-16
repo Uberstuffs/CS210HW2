@@ -1,3 +1,4 @@
+//Person.java
 package pairPackage;
 import java.util.*;
 import java.io.*;
@@ -10,6 +11,7 @@ public class Person
     String  title = null;
     //String major in subclass
 
+    String tmpStr;
     String MrSmith = "Agent Smith,999,M,Mr. Smith";
 
     public Person( String aStr )
@@ -22,15 +24,15 @@ public class Person
 
     public String parseComma( String ini, int c  )
     {
-        String tmpStr = "";
-        for(int i = 0; c >= 0; i++)
+        tmpStr = "";
+        for(int i = 0; c >= 0 && i < ini.length(); i++)
         {
-            if( c == 0 )
-                tmpStr += ini.charAt(i);            
-           
-            if( ini.charAt(i) == ',' )
+            if(c == 0 && ini.charAt(i) != ',')
+                tmpStr += ini.charAt(i);
+            if(ini.charAt(i) == ',')
                 c--;
         }
+        System.out.println(tmpStr);
         return tmpStr;
     }
 
@@ -41,13 +43,13 @@ public class Person
 
     public void findAge( String ini )
     {
-        String tmpStr = parseComma( ini, 1 );
+        tmpStr = parseComma( ini, 1 );
         age = Integer.valueOf( tmpStr );   
     }
 
     public void findGend( String ini )
     {
-        String tmpStr;
+        
         tmpStr = parseComma( ini, 2 );
         gender = tmpStr.charAt(0);
     }
