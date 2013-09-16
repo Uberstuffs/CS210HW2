@@ -14,6 +14,8 @@ public class Student extends Person
     }
     
     public String major()
+    {
         return major;  
+    }
 }
 

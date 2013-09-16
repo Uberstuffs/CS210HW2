@@ -5,25 +5,33 @@ import java.io.*;
 
 public class Person
 {
-    String  name = null;
-    int     age  = 0;
-    char    gender = ' ';
-    String  title = null;
-    //String major in subclass
+    String  name    = null;
+    int     age     = 0;
+    char    gender  = ' ';
+    String  title   = null;
+    String  line    = null;
 
     String tmpStr;
     String MrSmith = "Agent Smith,999,M,Mr. Smith";
 
     public Person( String aStr )
     {
+        line = aStr;
         findName(   aStr );
         findAge(    aStr );
         findGend(   aStr );
         findTitle(  aStr );
     }
     
+    public String findMajor()
+    {
+        return parseComma(line, 4); 
+    }
+    
     public String name()
+    {
         return name;
+    }
 
     public void printName()
     {

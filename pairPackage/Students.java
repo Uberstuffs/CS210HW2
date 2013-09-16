@@ -26,29 +26,37 @@ class Students extends People
         else
         {
             System.out.println("File not given");
+            System.exit(-1);
         }
         
         pairem();
+        oneofeach();
     }
     
     public static void oneofeach()
     {
-        Student tmpP;
-        List<Student> pl1 = new List<Student>();
-        List<Student> pl2 = new List<Student>();
-        List<Student> pl3 = new List<Student>();
-        List<Student> pl4 = new List<Student>();
+        Person tmpP;
+        List<Person> pl1 = new ArrayList<Person>();
+        List<Person> pl2 = new ArrayList<Person>();
+        List<Person> pl3 = new ArrayList<Person>();
+        List<Person> pl4 = new ArrayList<Person>();
+
+        String CS = "Computer Science";
+        String CE = "Computer Engineering";
+        String EE = "Electrical Engineering";
+        String AC = "Accounting";
 
         randomize();
 
         for(int i = 0; i < peopleList.size(); i++)
         {
             tmpP = peopleList.get(i);
-            if((tmpP.major()).equals("Computer Science"))
+
+            if(tmpP.findMajor() == CS)
                 pl1.add(tmpP);
-            else if((tmpP.major()).equals("Computer Engineering"))
+            else if(tmpP.findMajor() == CE)
                 pl2.add(tmpP);
-            else if((tmpP.major()).equals("Electrical Engineering"))
+            else if(tmpP.findMajor() == EE)
                 pl3.add(tmpP);
             else
                 pl4.add(tmpP);
@@ -67,36 +75,55 @@ class Students extends People
                 shortest = pl4.size();
         } 
     
-        int longest1 = longestName(lp1);
-        int longest2 = longestName(lp2);
-        int longest3 = longestName(lp3);
-        int longest4 = longestName(lp4);
+        int longest1 = longestName(pl1) + 2;
+        int longest2 = longestName(pl2) + 2;
+        int longest3 = longestName(pl3) + 2;
+        int longest4 = longestName(pl4) + 2;
+        int ext1 = 0, ext2 = 0, ext3 = 0, ext4 = 0;
+        String ex1 = "", ex2 = "", ex3 = "", ex4 = "";
 
-        int longName = 0;
-        for(int i = 0; longName > 0; i++)
+        if(CS.length() < longest1)
+            ext1 = longest1 - CS.length();
+                       
+        if(CE.length() < longest2)
+            ext2 = longest2 - CE.length();
+        
+        if(EE.length() < longest3) 
+            ext3 = longest3 - EE.length();
+
+        if(AC.length() < longest4)
+            ext4 = longest4 - AC.length();
+
+        for(int i = 0; i < ext1; i++)
+            ex1 += " ";
+        
+        for(int i = 0; i < ext2; i++)
+            ex2 += " ";
+        
+        for(int i = 0; i < ext3; i++)
+            ex3 += " ";
+            
+        for(int i = 0; i < ext4; i++)
+            ex4 += " ";
+
+        Person p1, p2, p3, p4;
+        System.out.println(CS + "  " + ex1 + CE + "  " + ex2 + EE + "  " + ex3 + AC + ex4);         
+        for(int i = 0; i < shortest; i++)
         {
-            if(i - longest1 == 0)
-                longName = longest1;
-            if(i - longest2 == 0)
-                longName = longest2;
-            if(i - longest3 == 0)
-                longName = longest3;
-            if(i - longest4 == 0)
-                longName = longest4;
-        }       
-    
-        for(int i = 0; i < list; i++)
-        {
-                    
+            p1 = pl1.get(i);
+            p2 = pl2.get(i);
+            p3 = pl3.get(i);
+            p4 = pl4.get(i);
+            System.out.println( p1 + ex1 + p2 + ex2 + p3 + ex3 + p4 + ex4);
         }
     } 
 
-    public static int longestName(List<Students> l)
+    public static int longestName(List<Person> l)
     {
         int length = 0;
         for(int i = 0; i < l.size(); i++)
         {
-            if(l.get(i).name().length > length)
+            if(l.get(i).name().length() > length)
                 length = l.get(i).name().length();
         }
         return length;

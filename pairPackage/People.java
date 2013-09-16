@@ -20,9 +20,10 @@ public class People
         if((peopleList.size() % 2) != 0)
         {
             print(peopleList.size() - 1);
-            System.out.print(" is an extra.\n");
+            System.out.print(" is an extra.");
         }
-        
+        System.out.print("\n");       
+ 
         for(int i = 0; i < peopleList.size() - 1; i += 2)
         {
             print(i);
