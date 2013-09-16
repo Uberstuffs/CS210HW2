@@ -10,7 +10,16 @@ class Students extends People
         
         if(args.length > 0)
         {
-            populate(args[0], new Student());
+            try
+            {
+                BufferedReader in = new BufferedReader(new FileReader(args[0]));
+                String str;
+                while((str = in.readLine()) != null ) 
+                {
+                    populate(new Student(str));                    
+                }  
+            }
+            catch(FileNotFoundException e){}
         }
         else
         {

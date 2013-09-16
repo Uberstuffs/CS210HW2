@@ -7,12 +7,7 @@ public class Student extends Person
 {
     String major;
     
-    public void Student()
-    {
-        major = "";
-    }
-    
-    public static void init( String s )
+    public Student(String s)
     {
         super(s);
         major = parseComma(s, 4);

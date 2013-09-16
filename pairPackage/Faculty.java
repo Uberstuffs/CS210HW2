@@ -5,10 +5,10 @@ import java.io.*;
 public class Faculty extends Person
 {
     String department;
-    
-/*    public void init(String s)
+
+    public Faculty(String s)
     {
         super(s);
         department = parseComma(s, 4);
-    }*/
+    }
 }
