@@ -21,6 +21,9 @@ public class Person
         findGend(   aStr );
         findTitle(  aStr );
     }
+    
+    public String name()
+        return name;
 
     public void printName()
     {

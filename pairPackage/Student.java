@@ -11,6 +11,9 @@ public class Student extends Person
     {
         super(s);
         major = parseComma(s, 4);
-    }  
+    }
+    
+    public String major()
+        return major;  
 }
 
