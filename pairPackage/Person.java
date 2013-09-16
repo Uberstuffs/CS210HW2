@@ -1,4 +1,3 @@
-
 package pairPackage;
 import java.util.*;
 import java.io.*;
@@ -7,18 +6,13 @@ public class Person
 {
     String  name = null;
     int     age  = 0;
-    char    gender = '/0';
+    char    gender = ' ';
     String  title = null;
     //String major in subclass
 
     String MrSmith = "Agent Smith,999,M,Mr. Smith";
-    
-    public void initialize()
-    {
-        createPerson( MrSmith );
-    }
-    
-    public void createPerson( String aStr )
+
+    public Person( String aStr )
     {
         findName(   aStr );
         findAge(    aStr );
@@ -28,7 +22,7 @@ public class Person
 
     public String parseComma( String ini, int c  )
     {
-        String tmpStr;
+        String tmpStr = "";
         for(int i = 0; c >= 0; i++)
         {
             if( c == 0 )

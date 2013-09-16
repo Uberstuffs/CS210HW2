@@ -8,9 +8,7 @@ public class People
 
     public void populate( String stringname )
     {
-        Person tmpPer = new Person();
-        tmpPer.initialize();
-        tmpPer.createPerson( stringname );
+        Person tmpPer = new Person( stringname );
         peopleList.add( tmpPer );
     }
     

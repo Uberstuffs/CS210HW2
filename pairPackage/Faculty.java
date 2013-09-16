@@ -2,7 +2,7 @@ package pairPackage;
 import java.util.*;
 import java.io.*;
 
-class Faculty extends Person
+public class Faculty extends Person
 {
     String department;
 }
