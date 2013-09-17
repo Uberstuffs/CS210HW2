@@ -2,3 +2,6 @@ George Washington,250,M,President,Computer Science
 Bill S. Preston,17,M,n/a,Electrical Engineering
 Theodore Logan,17,M,CEO,Computer Engineering
 Abraham Lincoln,150,M,President,Accounting
+Mr. Smith,811,M,SuperDude,Computer Science
+Kaitlyn Hoffman,20,F,A Person,Accounting
+Beghnt Buglen,81,M,Another Person,Computer Engineering

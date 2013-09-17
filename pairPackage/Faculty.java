@@ -12,4 +12,9 @@ public class Faculty extends Person
         super(s);
         department = parseComma(s, 4);
     }
+
+    public String dept()
+    {
+        return department;
+    }
 }
