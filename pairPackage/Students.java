@@ -35,11 +35,11 @@ class Students extends People
     
     public static void oneofeach()
     {
-        Person tmpP;
-        List<Person> pl1 = new ArrayList<Person>();
-        List<Person> pl2 = new ArrayList<Person>();
-        List<Person> pl3 = new ArrayList<Person>();
-        List<Person> pl4 = new ArrayList<Person>();
+        Student tmpP;
+        List<Student> pl1 = new ArrayList<Student>();
+        List<Student> pl2 = new ArrayList<Student>();
+        List<Student> pl3 = new ArrayList<Student>();
+        List<Student> pl4 = new ArrayList<Student>();
 
         String CS = "Computer Science";
         String CE = "Computer Engineering";
@@ -50,17 +50,19 @@ class Students extends People
 
         for(int i = 0; i < peopleList.size(); i++)
         {
-            tmpP = peopleList.get(i);
+            tmpP = (Student)peopleList.get(i);
 
-            if(tmpP.findMajor() == CS)
+            if(tmpP.major().equals(CS))
                 pl1.add(tmpP);
-            else if(tmpP.findMajor() == CE)
+            if(tmpP.major().equals(CE))
                 pl2.add(tmpP);
-            else if(tmpP.findMajor() == EE)
+            if(tmpP.major().equals(EE))
                 pl3.add(tmpP);
-            else
+            if(tmpP.major().equals(AC))
                 pl4.add(tmpP);
         }
+
+        System.out.println(pl1.get(0).name());
         
         int shortest = 0;
         for(int i = 0; shortest > 0; i++)
@@ -79,52 +81,58 @@ class Students extends People
         int longest2 = longestName(pl2) + 2;
         int longest3 = longestName(pl3) + 2;
         int longest4 = longestName(pl4) + 2;
-        int ext1 = 0, ext2 = 0, ext3 = 0, ext4 = 0;
-        String ex1 = "", ex2 = "", ex3 = "", ex4 = "";
 
-        if(CS.length() < longest1)
-            ext1 = longest1 - CS.length();
-                       
-        if(CE.length() < longest2)
-            ext2 = longest2 - CE.length();
-        
-        if(EE.length() < longest3) 
-            ext3 = longest3 - EE.length();
 
-        if(AC.length() < longest4)
-            ext4 = longest4 - AC.length();
-
-        for(int i = 0; i < ext1; i++)
-            ex1 += " ";
-        
-        for(int i = 0; i < ext2; i++)
-            ex2 += " ";
-        
-        for(int i = 0; i < ext3; i++)
-            ex3 += " ";
-            
-        for(int i = 0; i < ext4; i++)
-            ex4 += " ";
-
-        Person p1, p2, p3, p4;
-        System.out.println(CS + "  " + ex1 + CE + "  " + ex2 + EE + "  " + ex3 + AC + ex4);         
-        for(int i = 0; i < shortest; i++)
+        String p1, p2, p3, p4;
+        System.out.print(CS);
+        spaceOut(CS.length(), longest1);
+        System.out.print(CE);
+        spaceOut(CE.length(), longest2);
+        System.out.print(EE);
+        spaceOut(EE.length(), longest3);
+        System.out.print(AC);
+        spaceOut(AC.length(), longest4);
+        System.out.print("\n");
+ 
+        for(int i = 0; i < 1; i++)
         {
-            p1 = pl1.get(i);
-            p2 = pl2.get(i);
-            p3 = pl3.get(i);
-            p4 = pl4.get(i);
-            System.out.println( p1 + ex1 + p2 + ex2 + p3 + ex3 + p4 + ex4);
+            p1 = pl1.get(i).name();
+            p2 = pl2.get(i).name();
+            p3 = pl3.get(i).name();
+            p4 = pl4.get(i).name();
+            System.out.print(p1);
+            spaceOut(CS.length(), p1.length());
+            System.out.print(p2);
+            spaceOut(CE.length(), p2.length());
+            System.out.print(p3);
+            spaceOut(EE.length(), p3.length());
+            System.out.print(p4);
+            spaceOut(AC.length(), p4.length());
+        } 
+    }
+
+    public static void spaceOut(int size, int space)
+    {
+        while(size < space)
+        {
+            System.out.print(" ");
+            size++;
         }
     } 
 
-    public static int longestName(List<Person> l)
+    public static int longestName(List<Student> l)
     {
         int length = 0;
+        Person p;
+        String s;
         for(int i = 0; i < l.size(); i++)
         {
-            if(l.get(i).name().length() > length)
-                length = l.get(i).name().length();
+            p = l.get(i);
+            s = p.name();
+            if(s.length() > length)
+            {
+                length = s.length();
+            }
         }
         return length;
     } 
